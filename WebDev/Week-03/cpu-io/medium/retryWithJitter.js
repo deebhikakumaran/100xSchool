@@ -1,0 +1,32 @@
+// Problem Description – Retry with Exponential Backoff and Jitter
+
+// You are required to implement a retry mechanism for an asynchronous task that fails. 
+// On each retry, the delay before the next attempt should increase, and a small random “jitter”
+// should be added to the delay to prevent synchronized retries that can overload a server. 
+// The process should stop once the task succeeds or the maximum retry limit is reached.
+
+async function retryWithJitter(fn, retries = 3, baseDelay = 1000) {
+  let lastError;
+
+  for (let i = 0; i <= retries; i++) {
+    try {
+      return await fn();
+    } 
+    catch (err) {
+      lastError = err;
+
+      if (i === retries) {
+        throw lastError;
+      }
+
+      const delay = baseDelay * Math.pow(2, i);
+      const jitter = Math.random() * delay * 0.1; 
+
+      await new Promise((resolve) =>
+        setTimeout(resolve, delay + jitter)
+      );
+    }
+  }
+}
+
+module.exports = retryWithJitter;
