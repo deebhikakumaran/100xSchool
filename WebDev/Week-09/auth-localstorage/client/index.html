@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div style="display: flex; flex-direction: column;
+        padding: 0px 100px;"></div>
+            <div id="notes">
+                Loading...
+            </div>
+
+            <div>
+                <input type="text" id="note" 
+                style="margin: 0px 10px; padding: 5px 10px;
+                border: 1px solid black;" />
+                <button 
+                style="margin: 0px 10px; padding: 5px 10px;
+                border: 1px solid black;" 
+                onClick="createNote()">Create new note</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        async function createNote() {
+            const input = document.getElementById('note');
+            const note = input.value;
+            input.value = '';
+
+            await axios.post('http://localhost:3000/notes', { note }, 
+                {
+                    headers: {
+                        "token": localStorage.getItem("token")
+                    }
+                }
+            );
+            // maybe instead of getting all todos. u can just add that 
+            // extra one in frontend to minimise network bandwidth.
+            getNotes();
+        }
+        async function getNotes() {
+            // axios is library that is built on top of fetch. fetch is default browser api. 
+            
+            // const response = await fetch('http://localhost:3000/notes');
+            // const json = await response.json();
+            // console.log(json.notes);
+            
+            // axios is a dependency that i bring to my frontend code. 
+            // added script tag in head.
+            // popular data fetching library. http client. 
+            const response = await axios.get('http://localhost:3000/notes',
+                {
+                    headers: {
+                        "token": localStorage.getItem("token")
+                    }
+                }
+            );
+            
+            document.getElementById('notes').innerHTML = '';
+            // instead of response.data. notes,
+            // if you use notes. it points to id="notes" but don't show warning or error in console/amywhere.
+            for (let note of response.data.notes) {
+                const newNote = document.createElement('div');
+                newNote.innerHTML = note.note;
+                newNote.style.border = '2px solid black';
+                newNote.style.margin = '10px';
+                newNote.style.padding = '10px';
+                document.getElementById('notes').appendChild(newNote);
+            }
+        }
+        getNotes();
+    </script>
+</html>
