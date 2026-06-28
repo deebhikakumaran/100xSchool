@@ -47,7 +47,7 @@ await client.query("ROLLBACK")  // undo everything ✗
 ```
 
 ### 2. joins (relational queries)
-to get user progress, we join across 4 tables in **one query**:
+to get user progress, we join across 3 tables in **one query**:
 
 ```sql
 SELECT c.title, p.completion_percentage
@@ -174,8 +174,7 @@ curl -X POST http://localhost:3000/submit \
 **expected response:**
 ```json
 {
-  "message": "submitted and progress updated successfully.",
-  "completion_percentage": "33.33"
+  "message": "submitted and progress updated successfully."
 }
 ```
 
@@ -236,8 +235,7 @@ curl -X POST http://localhost:3000/submit \
 **expected response:**
 ```json
 {
-  "message": "submitted and progress updated successfully.",
-  "completion_percentage": "66.67"
+  "message": "submitted and progress updated successfully."
 }
 ```
 
@@ -265,6 +263,11 @@ curl "http://localhost:3000/progress?user_id=1"
     "completion_percentage": "66.67"
   }
 ]
+```
+
+**actual result from my test:**
+```json
+[{"title":"JavaScript","completion_percentage":"66.67"}]
 ```
 
 ✅ **passed** — completion percentage increased from 33.33 to 66.67
