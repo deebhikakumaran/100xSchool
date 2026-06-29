@@ -1,3 +1,3 @@
 ### Demo Video
 
-[▶ Watch Demo](./todo-app.demo.mp4)
+[▶ Watch Demo](./todo-app-demo.mp4)
