@@ -10,7 +10,7 @@ dotenv.config();
 
 // file-based dbs, mongodb, postgres
 const notes = [];
-const users = [];
+const USERS = [];
 
 // frontend endpoints
 app.get("/", (req, res) => {
