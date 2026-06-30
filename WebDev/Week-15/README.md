@@ -2,7 +2,7 @@
 
 ### Demo Video
 
-[▶ Watch Demo](./payment-demo.mp4)
+https://github.com/user-attachments/assets/bd201e49-3770-4c03-8191-a8b040e3f32a
 
 ### Tech Stack
 
