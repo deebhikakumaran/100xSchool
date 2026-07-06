@@ -1,0 +1,38 @@
+.table-container {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.adopter-table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+.adopter-table th, 
+.adopter-table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.adopter-table thead {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.go-back-btn {
+  padding: 10px 20px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: auto;
+}
