@@ -1,0 +1,112 @@
+.clock-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 0%, #1e2530 0%, #0f1218 65%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.clock-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 56px 72px;
+  border-radius: 24px;
+  background: #161b22;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.status-dot {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4b5563;
+  transition: background 0.3s ease;
+}
+
+.status-dot--live {
+  background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  animation: pulse 1.4s ease-out infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+.clock-display {
+  font-family: 'Courier New', 'SFMono-Regular', monospace;
+  font-size: 88px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #f1f5f9;
+  font-variant-numeric: tabular-nums; /* keeps digits from jittering side to side each tick */
+  text-shadow: 0 0 24px rgba(94, 234, 212, 0.15);
+}
+
+.clock-controls {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn--start {
+  background: #10b981;
+}
+.btn--start:hover {
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+  opacity: 0.92;
+}
+
+.btn--stop {
+  background: #ef4444;
+}
+.btn--stop:hover {
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35);
+  opacity: 0.92;
+}
+
+.btn--reset {
+  background: #374151;
+}
+.btn--reset:hover {
+  box-shadow: 0 6px 18px rgba(55, 65, 81, 0.45);
+  opacity: 0.92;
+}
+
+/* smaller screens: shrink digits and padding instead of overflowing */
+@media (max-width: 480px) {
+  .clock-card {
+    padding: 36px 32px;
+  }
+  .clock-display {
+    font-size: 56px;
+    letter-spacing: 2px;
+  }
+}
