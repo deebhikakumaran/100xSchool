@@ -1,0 +1,51 @@
+.neo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 8px 8px 0px 0px #000000;
+  margin-bottom: 30px;
+}
+
+.logo h2 {
+  margin: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #000;
+  background-color: #ffd814; 
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.1s;
+}
+
+.cart-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px 0px #000;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff6b6b;
+  border: 2px solid #000;
+  padding: 2px 6px;
+  font-weight: bold;
+  font-size: 12px;
+}
