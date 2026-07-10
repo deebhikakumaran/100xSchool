@@ -1,0 +1,44 @@
+:root {
+  --black: #0d0d0d;
+  --white: #ffffff;
+  --gray: #767676;
+  --gray-light: #e4e4e4;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, 'SF Mono', 'Cascadia Code',
+    Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-mono);
+  background: var(--white);
+  color: var(--black);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--black);
+  color: var(--white);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
+}
